@@ -8,15 +8,16 @@ date: May 2018
 import logging
 from discord.ext import commands
 import helpers
-import uccbot_config
+# import uccbot_config
 
 
 # Read config values from file
-config_file_name = 'botconfig.json'
-config_values = uccbot_config.read_config_file(config_file_name)
+# config_file_name = 'botconfig.json'
+# config_values = uccbot_config.read_config_file(config_file_name)
 
 # Bot token
-token = config_values.token
+# token = config_values.token
+token = 'NDQyODUwODI1Nzc4NDk1NDg4.DdJ__w.9RcQoyVOGj53JaE9f0fDJpgIcZA'
 
 # Set up bot logs
 logger = logging.getLogger('discord')
@@ -52,9 +53,9 @@ async def on_member_join(member):
     :param member: A Member object representing the user that joined.
     """
     # Find the general channel object
-    general = helpers.get_channel(config_values.general_channel_name, member.server)
+    general = helpers.get_channel('sorting', member.server)
     # send join message to general
-    join_msg = member.mention + config_values.join_msg
+    join_msg = member.mention + ' Welcome to the UCC discord server! Please state what group you are in or if you are an independent pilot. An admin will sort you accordingly as soon as possible.'
     await bot.send_message(general, join_msg)
 
 
